@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Black Tea",
+      "time": "180",
+      "temp": "100"  
+    },
+    {
+      "name": "Green Tea",
+      "time": "120",
+      "temp": "80"
+    },
+    {
+      "name": "White Tea",
+      "time": "120",
+      "temp": "75"
+    }
+  ]
