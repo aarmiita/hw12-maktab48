@@ -32,6 +32,14 @@ class Main extends Component {
         address: "",
       },
       view: [],
+      editSingleContact: {
+        id: "",
+        name: "",
+        phone: "",
+        email: "",
+        address: "",
+        avatar: "",
+      },
     };
     this.editContact = this.editContact.bind(this);
     this.save = this.save.bind(this);
@@ -136,9 +144,37 @@ class Main extends Component {
       search: e.target.value,
     });
   }
+  editSingleTask(obj) {
+    this.setState({ editSingleContact: obj });
+    console.log(this.editSingleContact);
+  }
+  updateSingleContact(e) {
+    let object = { ...this.state.editSingleContact };
+    object[e.target.name] = e.target.value;
+    this.setState({ editSingleContact: object });
+  }
+  saveSingleContact() {
+    let list = [...this.state.contactsList];
+    let objIndex = list.findIndex(
+      (obj) => obj.id == this.state.editSingleContact.id
+    );
+    list.splice(objIndex, 1, this.state.editSingleContact);
+    const newView = this.state.view.filter(
+      (item) => item.id === this.state.editSingleContact.id
+    );
+    newView.map((item) => {
+      return (
+        (item.phone = this.state.editSingleContact.phone),
+        (item.name = this.state.editSingleContact.name)
+      );
+    });
+    console.log(newView);
+    this.setState({
+      contactsList: list,
+    });
+  }
 
   render() {
-    // console.log(this.state.view);
     return (
       <div className="App">
         <ViewCotact
@@ -182,6 +218,11 @@ class Main extends Component {
             delete={this.delete.bind(this)}
             view={this.viewContact.bind(this)}
             search={this.state.search}
+            editSingleTask={this.editSingleTask.bind(this)}
+            editname={this.state.editSingleContact.name}
+            editphone={this.state.editSingleContact.phone}
+            updateSingleContact={this.updateSingleContact.bind(this)}
+            saveSingleContact={this.saveSingleContact.bind(this)}
           />
           <footer className="footer">
             <div className="home-btn">

@@ -205,3 +205,10 @@ div.form-control button {
   color: white;
   font-size: 1rem;
 }
+.edit-span {
+  font-size: 12px;
+  float: right;
+  margin: 8px;
+  color: red;
+  font-weight: bold;
+}

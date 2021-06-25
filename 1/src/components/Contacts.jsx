@@ -24,6 +24,7 @@ class Contacts extends Component {
             .map((obj, index) => {
               return (
                 <Contact
+                  obj={obj}
                   key={index}
                   name={obj.name}
                   phone={obj.phone}
@@ -32,6 +33,11 @@ class Contacts extends Component {
                   handleDelete={() => this.props.delete(obj.id)}
                   handleEdit={() => this.props.editContact(obj)}
                   view={() => this.props.view(obj)}
+                  editSingleTask={() => this.props.editSingleTask(obj)}
+                  editname={this.props.editname}
+                  editphone={this.props.editphone}
+                  updateSingleContact={this.props.updateSingleContact}
+                  saveSingleContact={() => this.props.saveSingleContact()}
                 />
               );
             })}
