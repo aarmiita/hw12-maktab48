@@ -48,3 +48,15 @@
   display: flex;
   justify-content: center;
 }
+button.start-timer,
+button.cancel {
+  background-color: white;
+  border: none;
+  margin: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+button.start-timer:hover,
+button.cancel:hover {
+  color: rgb(253, 103, 128);
+}

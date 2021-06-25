@@ -5,7 +5,6 @@ import Tea from "./Tea";
 const Menu = () => {
   const [teaList, setTeaList] = useState([]);
   const [title, setTitle] = useState("Choose a Tea");
-  const [timer, setTimer] = useState("0.0");
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   // const timerSeconds = seconds < 10 && seconds !== 0 ? `0${seconds}` : seconds;
@@ -18,8 +17,9 @@ const Menu = () => {
   useEffect(() => {
     startTimer();
   }, [seconds]);
+  let interval;
   const startTimer = () => {
-    let interval = setInterval(() => {
+    interval = setInterval(() => {
       clearInterval(interval);
       if (seconds === 0) {
         if (minutes !== 0) {
@@ -27,13 +27,18 @@ const Menu = () => {
           setMinutes(minutes - 1);
         } else {
           console.log("hello");
+          clearInterval(interval);
         }
       } else {
         setSeconds((seconds) => seconds - 1);
       }
     }, 1000);
   };
-  const cancel = () => {};
+  const cancel = () => {
+    clearInterval(interval);
+    setSeconds(0);
+    setMinutes(0);
+  };
   const getData = () => {
     setTimeout(() => {
       console.log("Our data is fetched");
@@ -66,7 +71,7 @@ const Menu = () => {
         })}
         <div className="startTimer">
           <div>
-            <button className="statr-timer" onClick={startTimer}>
+            <button className="start-timer" onClick={startTimer}>
               Start Timer{" "}
             </button>
             <button className="cancel" onClick={cancel}>
