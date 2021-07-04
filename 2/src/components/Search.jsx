@@ -7,11 +7,10 @@ class Search extends Component {
       <form>
         <input
           type="text"
-          ref="filterInput"
-          placeholder="Type to filter.."
+          placeholder="Search..."
           value={filterVal}
-          onChange={() => {
-            filterUpdate(this.refs.filterInput.value);
+          onChange={(e) => {
+            filterUpdate(e.target.value);
           }}
         />
       </form>

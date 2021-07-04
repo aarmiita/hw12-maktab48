@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   render() {
-    const hasSearch = this.state.filterText.length > 0;
+    const hasSearch = this.state.filterText?.length > 0;
     return (
       <div>
         <header>

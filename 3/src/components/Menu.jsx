@@ -72,7 +72,7 @@ const Menu = () => {
         <div className="startTimer">
           <div>
             <button className="start-timer" onClick={startTimer}>
-              Start Timer{" "}
+              Start Timer
             </button>
             <button className="cancel" onClick={cancel}>
               Cancel
